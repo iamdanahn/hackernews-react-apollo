@@ -2,6 +2,7 @@ import React from "react";
 import Link from "./Link";
 import { useQuery, gql } from "@apollo/client";
 
+// template literal gQL query string
 const FEED_QUERY = gql`
 	{
 		feed {
@@ -17,6 +18,8 @@ const FEED_QUERY = gql`
 `;
 
 const LinkList = () => {
+	// useQuery returns 3 items: loading, error, data
+	// data is destructured out of useQuery hook
 	const { data } = useQuery(FEED_QUERY);
 
 	return (
@@ -31,4 +34,5 @@ const LinkList = () => {
 		</div>
 	);
 };
+
 export default LinkList;
